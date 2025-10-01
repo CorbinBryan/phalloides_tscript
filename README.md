@@ -1,1 +1,1 @@
-# phalloides_tscript
+This repository contains code and derived data for a project aimed at identifying differences in bacterial communities retrieved from transcriptomes of the death cap mushroom, *A. phalloides*. See `Logbook.md` in the root of this repo for more information. 
