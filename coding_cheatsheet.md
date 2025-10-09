@@ -1,1 +1,0 @@
-* To run a script called `script_name.sh` in the terminal, do : `./script_name.sh`
