@@ -1,5 +1,5 @@
 # specify a base image--this is like specifying an operating system. 
-FROM debian:trixie-20250929-slim AS build
+FROM debian:trixie-20250929-slim
 # specify a root user
 USER root
 # Set a working directory 

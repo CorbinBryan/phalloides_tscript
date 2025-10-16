@@ -17,4 +17,3 @@ cd ./${ACCESS}
 
 /root/FastQC/fastqc ${ACCESS}* 
 
-java -jar /root/Trimmomatic-0.39/trimmomatic-0.39.jar ß

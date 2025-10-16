@@ -1,3 +1,5 @@
 /tools/Docker_QC/fastqc_v0.12.1.zip
 
 *.gz
+
+*.fastq 
