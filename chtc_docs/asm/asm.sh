@@ -15,5 +15,15 @@ mv ${ACCESS}*.fastq ./${ACCESS}
 
 cd ./${ACCESS}
 
-/root/FastQC/fastqc ${ACCESS}* 
+/root/FastQC/fastqc ${ACCESS}*
 
+echo -e ">Illumina_universal_adaptor\nAATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT" > adapters.fasta
+
+java -jar /root/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 -phred33\
+ ${ACCESS}_R1_001.fastq ${ACCESS}_R2_001.fastq\
+ ${ACCESS}P1.fastq ${ACCESS}U1.fastq ${ACCESS}P2.fastq ${ACCESS}U2.fastq\
+ ILLUMINACLIP:adapters.fasta:2:30:10\
+ LEADING:3\
+ TRAILING:3\
+ SLIDINGWINDOW:4:15\
+ MINLEN:150
