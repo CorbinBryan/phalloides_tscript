@@ -21,9 +21,17 @@ echo -e ">Illumina_universal_adaptor\nAATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACAC
 
 java -jar /root/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 -phred33\
  ${ACCESS}_R1_001.fastq ${ACCESS}_R2_001.fastq\
- ${ACCESS}P1.fastq ${ACCESS}U1.fastq ${ACCESS}P2.fastq ${ACCESS}U2.fastq\
+ ${ACCESS}_P1.fastq ${ACCESS}U1.fastq ${ACCESS}_P2.fastq ${ACCESS}U2.fastq\
  ILLUMINACLIP:adapters.fasta:2:30:10\
  LEADING:3\
  TRAILING:3\
  SLIDINGWINDOW:4:15\
  MINLEN:150
+
+spades.py -1 ${ACCESS}_P1.fastq -2 ${ACCESS}_P1.fastq -o ./assembly --cov-cutoff auto --rna 
+
+rm *fastq*
+
+cd .. 
+
+tar -czf ${ACCESS}.tar.gz ./${ACCESS}
