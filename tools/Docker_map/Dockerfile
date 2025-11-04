@@ -1,4 +1,4 @@
-FROM debian:trixie-slim AS build
+FROM debian:trixie-slim
 # set user to root
 USER root 
 # Set working directory. 
@@ -27,4 +27,4 @@ RUN git clone https://github.com/DaehwanKimLab/hisat2.git && \
     make
 RUN chmod -R 777 /root/
 
-## Note to self add trimmomatic 
+# Add trimmomatic
