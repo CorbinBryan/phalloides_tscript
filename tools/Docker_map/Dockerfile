@@ -5,7 +5,7 @@ USER root
 WORKDIR /root/ 
 # install dependencies
 RUN apt-get update && apt-get upgrade -y && \ 
-    apt-get install -y build-essential libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev git autoconf automake perl gcc wget default-jre default-jdk perl
+    apt-get install -y build-essential libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev git autoconf automake perl gcc wget default-jre default-jdk perl python3
 # install htslib, required for samtools, bamtools
 RUN git clone https://github.com/samtools/htslib.git && \ 
     cd htslib && \ 
@@ -22,8 +22,8 @@ RUN git clone https://github.com/samtools/samtools.git && \
     make && \ 
     make install
 
-RUN git clone https://github.com/DaehwanKimLab/hisat2.git && \ 
-    cd hisat2 && \ 
+RUN git clone https://github.com/lh3/minimap2.git && \ 
+    cd minimap2 && \ 
     make
 
 RUN apt-get install -y unzip && \
@@ -32,4 +32,4 @@ RUN apt-get install -y unzip && \
 
 RUN chmod -R 777 /root/
 
-ENV PATH="$PATH:/root/Trimmomatic-0.39:/root/hisat2"
+ENV PATH="$PATH:/root/Trimmomatic-0.39:/root/minimap2/"

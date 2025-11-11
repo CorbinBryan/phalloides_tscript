@@ -11,6 +11,6 @@ output = $(raw_read).out
 
 request_cpus = 8
 request_memory = 12GB
-request_disk = 70GB
+request_disk = 100GB
 
 queue raw_read from raw_reads.txt
